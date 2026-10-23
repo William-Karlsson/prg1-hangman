@@ -1,4 +1,4 @@
-from core.single_player_handler import handle_singleplayer
+from core.singleplayer_handler import handle_singleplayer
 from core.multiplayer_handler import handle_multiplayer
 from core.visuals.color import colors
 from core.visuals.clear_screen import clear_screen
