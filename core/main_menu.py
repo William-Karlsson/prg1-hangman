@@ -14,7 +14,7 @@ def main_menu():
         print("Det här spelet har två spellägen!")
         print("")
         print(f"[{colors.PURPLE}1{colors.ENDC}] - {colors.CYAN}En{colors.ENDC} spelare {colors.GRAY}(Ord tas från ordlista){colors.ENDC}")
-        print(f"[{colors.PURPLE}2{colors.ENDC}] - {colors.CYAN}Två{colors.ENDC} spelare {colors.GRAY}(Andra spelaren väljer ord){colors.ENDC}")
+        print(f"[{colors.PURPLE}2{colors.ENDC}] - {colors.CYAN}Två{colors.ENDC} spelare {colors.GRAY}(Ena spelaren väljer ord){colors.ENDC}")
         print("")
         print(f"[{colors.PURPLE}stäng{colors.ENDC}] - {colors.RED}Stäng{colors.ENDC} programmet")
         print("")
