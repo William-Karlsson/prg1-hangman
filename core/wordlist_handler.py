@@ -8,6 +8,9 @@ import xml.etree.ElementTree as ET
 import random
 
 def handle_initial_wordlist_existance_check(folder_path: str):
+    if not os.path.isdir(folder_path):
+        os.mkdir(folder_path)
+        
     if is_folder_empty(folder_path):
         handle_no_wordlist(folder_path)
 
@@ -106,7 +109,7 @@ def handle_choose_wordlist(folder_path: str):
                 print(f"{colors.RED}Fel: Ogiltigt val.{colors.ENDC}")
                 time.sleep(1)
             
-def delete_wordlist_menu(folder_path: str, xml_files: list[str]) -> None:
+def delete_wordlist_menu(folder_path: str, xml_files: list[str]):
     clear_screen()
 
     print(f"\n--- {colors.RED}Ta bort en ordlista{colors.ENDC} ---")
@@ -150,6 +153,7 @@ def delete_wordlist_menu(folder_path: str, xml_files: list[str]) -> None:
         delete_wordlist_menu(folder_path, xml_files)
 
 def is_folder_empty(folder_path: str) -> bool:
+    
     empty = True
     for _ in os.scandir(folder_path):
         empty = False
@@ -200,6 +204,7 @@ def pick_random_word(wordlist_path: str) -> str | None:
 
         if not word_list:
             print(f"{colors.RED}XML-filen lästes, men inga ord kunde identifieras. Vänligen prova igen med en annan ordlista.{colors.ENDC}")
+            time.sleep(1)
             return None
         
         print(f"{colors.GREEN}Färdig med analys, väljer ett ord ur listan.{colors.ENDC}")
@@ -208,12 +213,15 @@ def pick_random_word(wordlist_path: str) -> str | None:
 
     except ET.ParseError:
         print(f"{colors.RED}Fel: Filen är skadad eller är inte en giltig XML-fil.{colors.ENDC}")
+        time.sleep(1)
         return None
     except PermissionError:
         print(f"{colors.RED}Fel: Saknar behörighet att läsa filen.{colors.ENDC}")
+        time.sleep(1)
         return None
     except Exception as e:
         print(f"{colors.RED}Ett oväntat fel uppstod{colors.ENDC}: {e}")
+        time.sleep(1)
         return None
     
 def is_word_allowed(word: str) -> bool:

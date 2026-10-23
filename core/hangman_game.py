@@ -4,7 +4,7 @@ from core.visuals.color import colors
 from core.visuals.clear_screen import clear_screen
 from core.wordlist_handler import is_word_allowed
 
-def hangman(word:str) -> None:
+def hangman(word:str):
     word = word.lower().strip()
 
     lives_remaining = 6
@@ -71,7 +71,7 @@ def word_progressively_unveiled(guesses:list[str], word:str) -> str:
 
     return "".join(hidden_word)
 
-def show_figure(lives_remaining:int) -> None:
+def show_figure(lives_remaining:int):
     print(figure[lives_remaining])
 
 def intro():

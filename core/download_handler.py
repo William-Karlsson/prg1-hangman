@@ -3,7 +3,7 @@ import time
 import urllib.request
 from core.visuals.color import colors
 
-def download_callback(block_num:int, block_size:int, total_size:int) -> None:
+def download_callback(block_num:int, block_size:int, total_size:int):
     downloaded = block_num * block_size
     downloaded_mb = downloaded / (1024 * 1024)
 
@@ -37,6 +37,7 @@ def download_callback(block_num:int, block_size:int, total_size:int) -> None:
 
         sys.stdout.flush()
 
-def download(url: str, output_file: str) -> None:
+def download(url: str, output_file: str):
     urllib.request.urlretrieve(url, output_file, reporthook=download_callback)
     print(f"\nFil sparad i {colors.PURPLE}{output_file}{colors.ENDC}")
+    time.sleep(1)
