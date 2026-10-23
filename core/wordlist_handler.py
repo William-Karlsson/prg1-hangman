@@ -160,7 +160,7 @@ def is_folder_empty(folder_path: str) -> bool:
     else:
         return False
     
-def pick_random_word(wordlist_path: str) -> str:
+def pick_random_word(wordlist_path: str) -> str | None:
     if not isinstance(wordlist_path, str) or not os.path.isfile(wordlist_path):
         print(f"{colors.RED}Fel: Sökvägen '{wordlist_path}' är inte en giltig fil.{colors.ENDC}")
         return None
